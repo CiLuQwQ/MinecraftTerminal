@@ -23,7 +23,7 @@ jobs:
        #     version: 12.2.0 
        #     platform: x64
         - name: Build
-          run : "gcc -o output.exe main.c"
+          run : "gcc -o output.exe ${{ vars.REPOSITORY_VAR }}\\main.c"
         - name: 'Upload Artifact'
           uses: actions/upload-artifact@v4
           with:
