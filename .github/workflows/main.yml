@@ -30,7 +30,7 @@ jobs:
           uses: actions/upload-artifact@v4
           with:
             name: Output
-            path: output.exe,Start.bat
+            path: output.exe
             retention-days: 5
         
 permissions:
