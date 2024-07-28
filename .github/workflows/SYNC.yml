@@ -14,3 +14,6 @@ jobs:
           owner: yituodab
           base: master
           head: master
+permissions:
+   contents: write
+   pull-requests: write
