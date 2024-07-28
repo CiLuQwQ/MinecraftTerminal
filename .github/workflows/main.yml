@@ -1,0 +1,36 @@
+name: main
+
+on:
+  workflow_dispatch: # on button click
+
+jobs:
+  sync:
+
+    runs-on: windows-latest
+
+    steps:
+        - name: Sync Fork 
+          id : sync
+          uses: tgymnich/fork-sync@v2.0.10
+          with:
+            owner: yituodab
+            base: main
+            head: main
+        - name: Set up MinGW
+          id : setup
+          uses: egor-tensin/setup-mingw@v2
+          with:
+            platform: x64
+        - name: Build
+          run : "'${{ steps.setup.outputs.gxx }}' -o output.exe main.c"
+        - name: 'Upload Artifact'
+          uses: actions/upload-artifact@v4
+          with:
+            name: Output
+            path: output.exe
+            retention-days: 5
+        
+permissions:
+   contents: write
+   pull-requests: write
+   actions: write
