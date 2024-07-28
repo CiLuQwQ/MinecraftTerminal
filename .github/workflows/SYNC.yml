@@ -12,8 +12,8 @@ jobs:
       - uses: tgymnich/fork-sync@v2.0.10
         with:
           owner: yituodab
-          base: master
-          head: master
+          base: main
+          head: main
 permissions:
    contents: write
    pull-requests: write
