@@ -1,7 +1,9 @@
 name: main
 
 on:
-  workflow_dispatch: # on button click
+  push:
+    branches:
+      - 'main'
 
 jobs:
   sync:
@@ -9,19 +11,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-        - name: Sync Fork 
-          id : sync
-          uses: tgymnich/fork-sync@v2.0.10
-          with:
-            owner: yituodab
-            base: main
-            head: main
-        #- name: Set up MinGW
-        #  id : setup
-       #   uses: egor-tensin/setup-mingw@v2
-       #   with:
-       #     version: 12.2.0 
-       #     platform: x64
+
         - name: Checkout
           uses: actions/checkout@v3
         - name: Build
