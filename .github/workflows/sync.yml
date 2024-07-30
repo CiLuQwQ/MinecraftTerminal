@@ -1,0 +1,25 @@
+name: sync
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 * * * *'
+
+jobs:
+  sync:
+
+    runs-on: ubuntu-latest
+
+    steps:
+        - name: Sync Fork 
+          id : sync
+          uses: tgymnich/fork-sync@v2.0.10
+          with:
+            owner: yituodab
+            base: main
+            head: main
+        
+permissions:
+   contents: write
+   pull-requests: write
+   actions: write
